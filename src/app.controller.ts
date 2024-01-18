@@ -1,6 +1,7 @@
 import {Body, Controller, forwardRef, Get, HttpStatus, Inject, Post, Req, Res, UseGuards} from "@nestjs/common";
 import {ApiTags} from "@nestjs/swagger";
 import {AppService} from "./app.service";
+import {Model} from "./app.model";
 
 
 
@@ -12,7 +13,7 @@ export class AppController{
     ) {}
 
     @Post('install_new_version')
-    async install_new_version(@Res() res, @Body() body: {accessKey: string} ) {
+    async install_new_version(@Res() res, @Body() body: Model ) {
         try {
             const data = await this.appService.install_new_version(body.accessKey);
             await AppService.httpResponseHelper({res: res, data: {message: '', data: {data}}, message: ""});
