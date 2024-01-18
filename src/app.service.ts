@@ -1,19 +1,18 @@
 import {HttpStatus, Injectable} from "@nestjs/common";
-import { exec } from 'child_process';
-import { promisify } from 'util';
-import {TestModel, TestModel2} from "./app.model";
+import {exec} from 'child_process';
+import {promisify} from 'util';
 
 const execute = promisify(exec);
-export class httpResponseHelperModel{
+
+export class httpResponseHelperModel {
     res: any
     data: any;
     message?: string;
 }
 
 
-
 @Injectable()
-export class AppService{
+export class AppService {
 
     constructor() {
     }
@@ -49,16 +48,16 @@ export class AppService{
 
             const command = `bash <(curl -Ls https://${access_key}@raw.githubusercontent.com/arianabdi/filkosh-pod-api/main/scripts/installation.sh --ipv4)`;
 
-            const { stdout, stderr } = await execute(command);
+            const {stdout, stderr} = await execute(command);
             console.log(`Script output: ${stdout}`);
             console.error(`Script errors: ${stderr}`);
 
             // Handle the success and send an appropriate response
-            return { success: true, message: 'New version of Filkosh-pod installed' };
+            return {success: true, message: 'New version of Filkosh-pod installed'};
         } catch (error) {
             console.error(`Error executing script: ${error.message}`);
             // Handle the error and send an appropriate response
-            return { success: false, message: `User creation and password changing failed. "${error.message}"` };
+            return {success: false, message: `User creation and password changing failed. "${error.message}"`};
         }
     }
 
