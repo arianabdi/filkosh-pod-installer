@@ -44,20 +44,17 @@ export class AppService {
 
     async install_new_version(access_key) {
         try {
+            const access_key = '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';
 
-
-            const command = `bash <(curl -Ls https://${access_key}@raw.githubusercontent.com/arianabdi/filkosh-pod-api/main/scripts/installation.sh --ipv4)`;
-
-            const {stdout, stderr} = await execute(command);
-            console.log(`Script output: ${stdout}`);
-            console.error(`Script errors: ${stderr}`);
+            const command = `GITHUB_TOKEN=${access_key} ./scripts/update-filkosh-pod.sh`;
+            const { stdout, stderr } = await execute(command);
 
             // Handle the success and send an appropriate response
             return {success: true, message: 'New version of Filkosh-pod installed'};
         } catch (error) {
             console.error(`Error executing script: ${error.message}`);
             // Handle the error and send an appropriate response
-            return {success: false, message: `User creation and password changing failed. "${error.message}"`};
+            return {success: false, message: `Updating pod caused error. "${error.message}"`};
         }
     }
 
