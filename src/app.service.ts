@@ -44,9 +44,9 @@ export class AppService {
 
     async install_new_version(access_key) {
         try {
-            const access_key = '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';
+            // const access_key = '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';
 
-            const command = `GITHUB_TOKEN=${access_key} ./scripts/update-filkosh-pod.sh`;
+            const command = `./scripts/update-filkosh-pod.sh "${access_key}"`;
             const { stdout, stderr } = await execute(command);
 
             // Handle the success and send an appropriate response
