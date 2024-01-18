@@ -39,7 +39,7 @@ git clone "https://github_pat_11ACI7KLY0yexmJCQZd72Q_yt45Nw6mOZaPEiSc4XugFQkL15Q
 
 # Navigate to the project directory
 cd filkosh-pod-installer
-sudo chmod +x ./scripts/update_pod.sh
+
 
 # Install project dependencies
 echo "Installing node modules..."
