@@ -1,4 +1,12 @@
 #!/bin/bash
 
-# Your existing script commands here
-bash <(curl -Ls https://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@raw.githubusercontent.com/arianabdi/filkosh-pod-api/main/scripts/installation.sh --ipv4)
+# Check if the access key is provided
+if [ -z "$1" ]; then
+    echo "Error: Access key not provided."
+    exit 1
+fi
+
+ACCESS_KEY="$1"
+
+# Your existing script commands here, and use $ACCESS_KEY where needed
+bash <(curl -Ls https://raw.githubusercontent.com/arianabdi/filkosh-pod-api/main/scripts/installation.sh --ipv4)
