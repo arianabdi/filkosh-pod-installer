@@ -1,0 +1,9 @@
+{
+  "platform": "node",
+  "port": 3000,
+  "node": {
+    "version": "16",
+    "timezone": "Asia/tehran",
+    "npmAudit": true
+  }
+}
