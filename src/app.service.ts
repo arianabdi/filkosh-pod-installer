@@ -58,4 +58,7 @@ export class AppService {
         }
     }
 
+    async check_installer_is_installed() {
+        return {status: 'installed'}
+    }
 }
