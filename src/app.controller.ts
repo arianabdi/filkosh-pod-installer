@@ -27,7 +27,7 @@ export class AppController{
     async check_installer_is_installed(@Res() res) {
         try {
             const data = await this.appService.check_installer_is_installed();
-            await AppService.httpResponseHelper({res: res, data: {message: '', data: data}, message: ""});
+            await AppService.httpResponseHelper({res: res, data:data, message: ""});
 
         }catch (e){
             await AppService.errorHelper(res, e);
